@@ -5,10 +5,10 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f5f5f5;
+    background-color: #000;
 }
 
 /* Hamburger Menu */
@@ -62,14 +62,16 @@ body {
 .nav-menu {
     position: fixed;
     top: 0;
-    left: -300px;
-    width: 300px;
+    left: -100%;
+    width: 100%;
     height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: rgb(255, 255, 255);
     padding: 100px 30px 30px;
-    transition: left 0.3s ease;
+    transition: left 0.4s ease;
     z-index: 999;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-menu.active {
@@ -78,26 +80,27 @@ body {
 
 .nav-menu ul {
     list-style: none;
+    text-align: center;
 }
 
 .nav-menu ul li {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .nav-menu ul li a {
-    color: white;
+    color: #000;
     text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 3rem;
+    font-weight: 300;
     display: block;
     padding: 10px;
-    border-radius: 5px;
     transition: all 0.3s ease;
+    letter-spacing: 2px;
 }
 
 .nav-menu ul li a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateX(10px);
+    letter-spacing: 6px;
+    opacity: 0.7;
 }
 
 /* Social Links */
@@ -142,24 +145,91 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #000;
     text-align: center;
     padding: 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.hero-content h1 {
-    color: white;
-    font-size: 4rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+/* Background Video */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    object-fit: cover;
 }
 
-.hero-content p {
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+.portfolio-hover {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 800px;
+}
+
+.portfolio-title {
     color: white;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 300;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.portfolio-items {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+.portfolio-item {
+    color: white;
+    text-decoration: none;
+    font-size: 4rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 20px 40px;
+}
+
+.portfolio-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+    letter-spacing: 8px;
+}
+
+.portfolio-item:hover::after {
+    width: 80%;
 }
 
 /* Page Content */
@@ -168,6 +238,7 @@ body {
     padding: 100px 20px 40px;
     max-width: 1200px;
     margin: 0 auto;
+    background: white;
 }
 
 .page-content h1 {
@@ -206,6 +277,13 @@ body {
     overflow: hidden;
 }
 
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .project-image::before {
     content: '📷';
     position: absolute;
@@ -214,6 +292,13 @@ body {
     transform: translate(-50%, -50%);
     font-size: 4rem;
     opacity: 0.5;
+    z-index: 0;
+}
+
+/* Hide placeholder icon when image is present */
+.project-image:has(img)::before,
+.project-image.has-image::before {
+    display: none;
 }
 
 .project-card h3 {
@@ -252,6 +337,13 @@ body {
     overflow: hidden;
 }
 
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .about-image::before {
     content: '👤';
     position: absolute;
@@ -260,6 +352,13 @@ body {
     transform: translate(-50%, -50%);
     font-size: 6rem;
     opacity: 0.5;
+    z-index: 0;
+}
+
+/* Hide placeholder icon when image is present */
+.about-image:has(img)::before,
+.about-image.has-image::before {
+    display: none;
 }
 
 .about-text h2 {
@@ -305,12 +404,21 @@ body {
         padding: 8px 12px;
     }
 
-    .hero-content h1 {
+    .portfolio-item {
         font-size: 2.5rem;
+        letter-spacing: 2px;
     }
 
-    .hero-content p {
-        font-size: 1.2rem;
+    .portfolio-item:hover {
+        letter-spacing: 4px;
+    }
+
+    .portfolio-title {
+        font-size: 1.5rem;
+    }
+
+    .nav-menu ul li a {
+        font-size: 2rem;
     }
 
     .page-content {
