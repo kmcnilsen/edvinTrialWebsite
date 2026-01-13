@@ -152,6 +152,20 @@ body {
     overflow: hidden;
 }
 
+/* Background Video */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    object-fit: cover;
+}
+
 .hero::before {
     content: '';
     position: absolute;
@@ -263,6 +277,13 @@ body {
     overflow: hidden;
 }
 
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .project-image::before {
     content: '📷';
     position: absolute;
@@ -271,6 +292,12 @@ body {
     transform: translate(-50%, -50%);
     font-size: 4rem;
     opacity: 0.5;
+    z-index: 0;
+}
+
+/* Hide placeholder icon when image is present */
+.project-image:has(img)::before {
+    display: none;
 }
 
 .project-card h3 {
@@ -309,6 +336,13 @@ body {
     overflow: hidden;
 }
 
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .about-image::before {
     content: '👤';
     position: absolute;
@@ -317,6 +351,12 @@ body {
     transform: translate(-50%, -50%);
     font-size: 6rem;
     opacity: 0.5;
+    z-index: 0;
+}
+
+/* Hide placeholder icon when image is present */
+.about-image:has(img)::before {
+    display: none;
 }
 
 .about-text h2 {
