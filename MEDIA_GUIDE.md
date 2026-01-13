@@ -92,68 +92,39 @@ Uncomment and update with your image:
 
 ## 🎥 Adding Video Background
 
-### Step 1: Prepare Your Video
+**Important Note:** Large video files cause deployment timeouts on GitHub Pages. For best results, host videos externally (YouTube, Vimeo, or a CDN) and embed them, or use a static background image.
 
-**Video specs for web:**
-- **Format**: MP4 (H.264 codec)
-- **Resolution**: 1920x1080 (Full HD) or 1280x720 (HD)
-- **Duration**: Keep short (30-60 seconds for looping)
-- **File size**: Under 10MB for background videos
-- **Frame rate**: 24-30 fps
+### Option 1: Use Background Image (Current Implementation)
 
-**Compression tools:**
-- [HandBrake](https://handbrake.fr/) (Free, excellent for video compression)
-- [CloudConvert](https://cloudconvert.com/mp4-converter) (Online converter)
-- Adobe Media Encoder
-- FFmpeg (command-line tool)
+The website currently uses a background image instead of video to ensure fast deployment and loading. The poster image `images/nokkelbarn.jpg` is used as the hero background.
 
-**HandBrake settings for web video:**
-1. Open HandBrake
-2. Select your video file
-3. Choose "Web" > "Gmail Large 3 Minutes 720p30" preset
-4. Adjust video dimensions to 1920x1080 if needed
-5. Set quality to RF 22-24 for good balance
-6. Start encode
+To change the background image, edit `index.html`:
 
-### Step 2: Create a Poster Image
-
-Extract a frame from your video to use as a poster (loading thumbnail):
-
-**Using VLC Media Player:**
-1. Open video in VLC
-2. Pause at desired frame
-3. Video menu > Take Snapshot
-4. Save as `video-poster.jpg` in `/images/portfolio/`
-
-### Step 3: Add Files
-
-```
-videos/
-└── showreel-2024.mp4               ← Your video file
-
-images/portfolio/
-└── video-poster.jpg                ← Video thumbnail
-```
-
-### Step 4: Update index.html
-
-Find this section:
 ```html
-<!--
-<video class="hero-video" autoplay muted loop playsinline poster="images/portfolio/video-poster.jpg">
-    <source src="videos/showreel-2024.mp4" type="video/mp4">
-    Din nettleser støtter ikke video.
-</video>
--->
+<div class="hero-background" style="background-image: url('images/your-image.jpg');"></div>
 ```
 
-Uncomment and update:
+### Option 2: Embed Video from YouTube/Vimeo (Recommended for video)
+
+For video content, host on YouTube or Vimeo and embed:
+
 ```html
-<video class="hero-video" autoplay muted loop playsinline poster="images/portfolio/video-poster.jpg">
-    <source src="videos/showreel-2024.mp4" type="video/mp4">
-    Din nettleser støtter ikke video.
-</video>
+<!-- YouTube embed example -->
+<iframe class="hero-video" 
+    src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&loop=1&controls=0" 
+    frameborder="0" allowfullscreen>
+</iframe>
 ```
+
+### Option 3: Host Video on CDN (Advanced)
+
+For direct video hosting, use a CDN like:
+- Cloudflare R2
+- AWS S3 + CloudFront
+- Bunny CDN
+- Vercel Blob Storage
+
+**Do not commit large video files (>10MB) to the Git repository** as they cause deployment timeouts.
 
 ---
 

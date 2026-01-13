@@ -1,0 +1,4 @@
+# Large video files - host externally instead
+videos/*.mp4
+videos/*.mov
+videos/*.avi

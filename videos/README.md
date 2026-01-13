@@ -1,45 +1,36 @@
 # Videos Directory
 
-This directory contains video files for the ShotByEdvin website.
+**Important:** This directory should NOT contain large video files in the Git repository, as they cause deployment timeouts on GitHub Pages.
 
-## Adding Videos
+## Recommended Approach for Videos
 
-To add your actual video content:
+### Option 1: External Hosting (Recommended)
+Host your videos on:
+- **YouTube** - Free, reliable, good for public content
+- **Vimeo** - Professional, better quality control
+- **CDN Services** - Cloudflare R2, AWS S3, Bunny CDN
 
-1. **Prepare your videos for web:**
-   - Convert to MP4 format (H.264 codec) for best compatibility
-   - Recommended resolution: 1920x1080 (Full HD) or 1280x720 (HD)
-   - Compress for web to reduce file size (use tools like HandBrake)
-   - Consider creating a poster image (thumbnail) for each video
+Then embed the video in your HTML instead of hosting it directly.
 
-2. **Video file naming:**
-   - Use descriptive names: `showreel-2024.mp4`, `film-work-highlights.mp4`
-   - Keep filenames lowercase with hyphens instead of spaces
+### Option 2: Background Image (Current Implementation)
+The website currently uses a static background image (`images/nokkelbarn.jpg`) instead of video to ensure fast, reliable deployment.
 
-3. **Update HTML to reference your videos:**
+## Why Not Store Videos Here?
 
-Replace the placeholder in index.html:
-```html
-<video autoplay muted loop playsinline>
-    <source src="videos/your-video-file.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
-```
+Large video files (>10MB) cause:
+- ❌ Deployment timeouts (10+ minutes)
+- ❌ Slow git operations
+- ❌ Repository bloat
+- ❌ Poor performance on slower connections
 
-4. **Background video best practices:**
-   - Keep videos under 10MB for fast loading
-   - Use muted autoplay for background videos
-   - Always provide a fallback poster image
-   - Consider mobile experience (videos can be disabled on mobile to save bandwidth)
+## If You Must Store Small Videos
 
-## Example Usage
+Only store videos if:
+- File size is **under 5MB**
+- Video is highly compressed for web
+- You've tested deployment time
 
-```html
-<video autoplay muted loop playsinline poster="images/portfolio/video-poster.jpg">
-    <source src="videos/showreel-2024.mp4" type="video/mp4">
-    Din nettleser støtter ikke video.
-</video>
-```
+**Better solution:** Use external video hosting services and embed them in your HTML.
 
 ## Copyright
 
