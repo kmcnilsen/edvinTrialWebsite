@@ -30,4 +30,20 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Hide placeholder icons when images are loaded (for older browser compatibility)
+    // This provides fallback for browsers that don't support :has() CSS selector
+    const imageContainers = document.querySelectorAll('.about-image, .project-image');
+    imageContainers.forEach(container => {
+        const img = container.querySelector('img');
+        if (img) {
+            // Image exists, hide placeholder icon
+            container.classList.add('has-image');
+            
+            // Also handle if image fails to load
+            img.addEventListener('error', function() {
+                container.classList.remove('has-image');
+            });
+        }
+    });
 });

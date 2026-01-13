@@ -296,7 +296,8 @@ body {
 }
 
 /* Hide placeholder icon when image is present */
-.project-image:has(img)::before {
+.project-image:has(img)::before,
+.project-image.has-image::before {
     display: none;
 }
 
@@ -355,7 +356,8 @@ body {
 }
 
 /* Hide placeholder icon when image is present */
-.about-image:has(img)::before {
+.about-image:has(img)::before,
+.about-image.has-image::before {
     display: none;
 }
 
