@@ -11,22 +11,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Hamburger Menu -->
-    <div class="hamburger-menu">
-        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
-
-    <!-- Navigation Menu -->
-    <nav class="nav-menu" id="navMenu">
-        <ul>
-            <li><a href="projects.html">Prosjekter</a></li>
-            <li><a href="about.html">Om meg</a></li>
-        </ul>
-    </nav>
 
     <!-- Social Media Links -->
     <div class="social-links">
@@ -35,7 +19,6 @@
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
-            Email
         </a>
         <a href="https://www.instagram.com/shotbyedvin/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -43,30 +26,32 @@
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
             </svg>
-            Instagram
         </a>
         <a href="https://www.youtube.com/channel/UCLRyDGH8UnAt04OgeOhROgA" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
                 <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
             </svg>
-            YouTube
         </a>
     </div>
 
     <!-- Main Content -->
     <main class="hero">
         <!-- Background Video - Replace with your actual video file -->
-        <!-- Uncomment the section below and add your video file to the /videos directory -->
-        <!--
-        <video class="hero-video" autoplay muted loop playsinline poster="images/portfolio/video-poster.jpg">
-            <source src="videos/showreel-2024.mp4" type="video/mp4">
+        <video class="hero-video" autoplay muted loop playsinline poster="images/nokkelbarn.jpg">
+            <source src="videos/showreel.mp4" type="video/mp4">
             Din nettleser støtter ikke video.
         </video>
-        -->
         
         <div class="portfolio-hover">
-            <h1 class="portfolio-title">Arbeid</h1>
+            <img src="images/edvinlogo2_hvit.png" alt="Edvin Fjørtoft Pettersen">
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="active">Arbeid</a></li>
+                    <li><a href="projects.html">Prosjekter</a></li>
+                    <li><a href="about.html">Om meg</a></li>
+                </ul>
+            </nav>
             <div class="portfolio-items">
                 <a href="projects.html" class="portfolio-item">
                     <span>Film</span>
